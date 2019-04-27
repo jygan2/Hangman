@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/updatedHangmanPic"
+        android:layout_width="249dp"
+        android:layout_height="111dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:contentDescription="@string/hangman_pic"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hangmanpic" />
+
+    <EditText
+        android:id="@+id/textInputLayout"
+        android:layout_width="227dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wordGuessDisplay" />
+
+    <Button
+        android:id="@+id/enterButton"
+        android:layout_width="82dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="7dp"
+        android:contentDescription="@string/guess"
+        android:text="@string/guess"
+        app:layout_constraintStart_toEndOf="@+id/textInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/winButton"
+        tools:text="Guess" />
+
+    <TextView
+        android:id="@+id/guessedCharacterText"
+        android:layout_width="181dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="27dp"
+        android:text="@string/guess_character_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        tools:text="Guessed:" />
+
+    <TextView
+        android:id="@+id/errorDisplay"
+        android:layout_width="121dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="16dp"
+        android:text="Error Display"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/guessedCharacters"
+        app:layout_constraintTop_toBottomOf="@+id/enterButton" />
+
+    <TextView
+        android:id="@+id/guessedCharacters"
+        android:layout_width="185dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/characters_guesssed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guessedCharacterText" />
+
+    <TextView
+        android:id="@+id/wordGuessDisplay"
+        android:layout_width="373dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updatedHangmanPic" />
+
+    <Button
+        android:id="@+id/winButton"
+        android:layout_width="251dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="28dp"
+        android:text="You Won!  Click to Restart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

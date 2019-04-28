@@ -1,8 +1,5 @@
 package com.example.hangman;
 
-import android.app.Activity;
-import android.hardware.SensorListener;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,13 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.github.tbouron.shakedetector.library.ShakeDetector;
-
-import java.util.ArrayList;
 import java.util.Random;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
     /**
@@ -33,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
      * word to guess.
      */
     char[] word;
-    /**
+      /**
      * button for user to click to enter in char.
      */
     Button updateButton;
@@ -99,16 +91,18 @@ public class MainActivity extends AppCompatActivity {
         hangmanpic = findViewById(R.id.updatedHangmanPic);
         hangmanpic.setImageResource(R.drawable.hangman0);
         gameWinButton = findViewById(R.id.winButton);
+        charInput = findViewById(R.id.textInputLayout);
 
         gameStart();
+
         ShakeDetector.create(this, new ShakeDetector.OnShakeListener() {
             @Override
             public void OnShake() {
-                //stuff
+                //credits to tBouron's shake detector.
                 gameStart();
             }
         });
-        charInput = findViewById(R.id.textInputLayout);
+
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 wordCheck(charGuess);
             }
         });
+
         gameWinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,13 +130,16 @@ public class MainActivity extends AppCompatActivity {
         word = wordbank[random.nextInt(wordbank.length)].toCharArray();
         hangmanpic.setImageResource(R.drawable.hangman0);
         guessesLeft = 6;
+
         charactersGuessed = new char[26];
         charDisplay = new char[word.length * 2];
         charsLeftToGuess = word.length;
+
         for (int i = 0; i < word.length * 2 ; i += 2) {
             charDisplay[i] = '_';
             charDisplay[i + 1] = ' ';
         }
+        wordGuess.setVisibility(View.VISIBLE);
         wordGuess.setText(new String(charDisplay));
         charactersGuessedDisplay.setText("");
         gameWinButton.setVisibility(View.INVISIBLE);
